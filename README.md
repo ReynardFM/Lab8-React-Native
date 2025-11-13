@@ -1,97 +1,82 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Navigation App
 
-# Getting Started
+This is a simple React Native application built to demonstrate various navigation patterns using the React Navigation library. The app showcases a combination of Stack and Tab navigators to create a seamless user experience.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features
 
-## Step 1: Start Metro
+*   **Tab Navigation:** The root of the application is a Tab Navigator, allowing users to switch between different sections like Home, Search, and Settings.
+*   **Stack Navigation:** The "Home" tab contains a Stack Navigator, which enables users to navigate to detail screens and back.
+*   **Screen Components:** The app includes several screens to illustrate the navigation flow:
+    *   `HomeScreen`: The main screen within the Home stack.
+    *   `DetailsScreen`: A screen to display more details, accessible from the `HomeScreen`.
+    *   `ProfileScreen`: A user profile screen, also part of the Home stack.
+    *   `SearchScreen`: A dedicated screen for search functionality, accessible via the tab bar.
+    *   `SettingsScreen`: A screen for application settings, also accessible via the tab bar.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Technologies Used
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+*   [React Native](https://reactnative.dev/)
+*   [React Navigation](https://reactnavigation.org/)
+*   [TypeScript](https://www.typescriptlang.org/)
 
-```sh
-# Using npm
-npm start
+## Project Structure
 
-# OR using Yarn
-yarn start
+The project follows a standard React Native structure, with the main application logic located in the `src` directory:
+
+```
+src/
+├── navigation/
+│   ├── StackNavigator.js  # Defines the stack navigation flow
+│   └── TabNavigator.js    # Defines the tab navigation flow
+└── screens/
+    ├── DetailsScreen.js
+    ├── HomeScreen.js
+    ├── ProfileScreen.js
+    ├── SearchScreen.js
+    └── SettingsScreen.js
 ```
 
-## Step 2: Build and run your app
+## Getting Started
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+To get a local copy up and running, follow these simple steps.
 
-### Android
+### Prerequisites
 
-```sh
-# Using npm
-npm run android
+Make sure you have completed the [React Native development environment setup](https://reactnative.dev/docs/environment-setup).
 
-# OR using Yarn
-yarn android
-```
+### Installation & Running
 
-### iOS
+1.  **Clone the repo**
+    ```sh
+    git clone https://github.com/ReynardFM/Lab8-React-Native.git
+    ```
+2.  **Install NPM packages**
+    ```sh
+    npm install
+    ```
+3.  **Start the Metro server**
+    ```sh
+    npm start
+    ```
+4.  **Run the application**
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+    *   **Android**
+        ```sh
+        npm run android
+        ```
+    *   **iOS**
+        ```sh
+        npm run ios
+        ```
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+## Contributing
 
-```sh
-bundle install
-```
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-Then, and every time you update your native dependencies, run:
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
