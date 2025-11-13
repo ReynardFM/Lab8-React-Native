@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
+import { ThemeContext } from '../context/ThemeContext';
+
 const DetailsScreen = ({ route, navigation }) => {
+    const { darkModeEnabled, colors } = useContext(ThemeContext);
+    const theme = darkModeEnabled ? colors.dark : colors.light;
     const { itemId, itemName } = route.params;
+
+    const styles = StyleSheet.create({
+        container: {
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 20,
+            backgroundColor: theme.background,
+        },
+        title: {
+            fontSize: 24,
+            fontWeight: 'bold',
+            marginBottom: 20,
+            color: theme.text,
+        },
+        text: {
+            fontSize: 16,
+            marginBottom: 10,
+            color: theme.text,
+        },
+    });
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Details Screen</Text>
@@ -19,21 +45,5 @@ const DetailsScreen = ({ route, navigation }) => {
         </View>
     );
 };
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 20,
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 20,
-    },
-    text: {
-        fontSize: 16,
-        marginBottom: 10,
-    },
-});
+
 export default DetailsScreen;

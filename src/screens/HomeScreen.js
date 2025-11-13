@@ -1,7 +1,41 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { ThemeContext } from '../context/ThemeContext';
 
 const HomeScreen = ({ navigation }) => {
+    const { darkModeEnabled, colors } = useContext(ThemeContext);
+    const theme = darkModeEnabled ? colors.dark : colors.light;
+
+    const styles = StyleSheet.create({
+        container: {
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 20,
+            backgroundColor: theme.background,
+        },
+        title: {
+            fontSize: 24,
+            fontWeight: 'bold',
+            marginBottom: 30,
+            color: theme.text,
+        },
+        block: {
+            backgroundColor: theme.primary,
+            paddingVertical: 20,
+            paddingHorizontal: 40,
+            borderRadius: 10,
+            marginBottom: 20,
+            width: '80%',
+            alignItems: 'center',
+        },
+        blockText: {
+            color: '#fff',
+            fontSize: 18,
+            fontWeight: 'bold',
+        },
+    });
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Home Screen</Text>
@@ -26,34 +60,5 @@ const HomeScreen = ({ navigation }) => {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 20,
-        backgroundColor: '#f5f5f5',
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 30,
-    },
-    block: {
-        backgroundColor: '#3498db',
-        paddingVertical: 20,
-        paddingHorizontal: 40,
-        borderRadius: 10,
-        marginBottom: 20,
-        width: '80%',
-        alignItems: 'center',
-    },
-    blockText: {
-        color: '#fff',
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-});
 
 export default HomeScreen;

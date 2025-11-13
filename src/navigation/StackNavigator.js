@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import { ThemeContext } from '../context/ThemeContext';
+
 const Stack = createStackNavigator();
+
 const StackNavigator = () => {
+    const { darkModeEnabled, colors } = useContext(ThemeContext);
+    const theme = darkModeEnabled ? colors.dark : colors.light;
+
     return (
         <Stack.Navigator
             initialRouteName="Home"
             screenOptions={{
                 headerStyle: {
-                    backgroundColor: '#3498db',
+                    backgroundColor: theme.primary,
                 },
                 headerTintColor: '#fff',
                 headerTitleStyle: {
@@ -37,4 +43,5 @@ const StackNavigator = () => {
         </Stack.Navigator>
     );
 };
+
 export default StackNavigator;
