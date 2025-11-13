@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import StackNavigator from './StackNavigator';
 import SearchScreen from '../screens/SearchScreen';
 import SettingsScreen from '../screens/SettingsScreen';
@@ -13,7 +14,7 @@ const TabNavigator = () => {
 
     return (
         <Tab.Navigator
-            screenOptions={{
+            screenOptions={({ route }) => ({
                 headerStyle: {
                     backgroundColor: theme.primary,
                 },
@@ -27,7 +28,20 @@ const TabNavigator = () => {
                 },
                 tabBarActiveTintColor: theme.primary,
                 tabBarInactiveTintColor: darkModeEnabled ? '#999' : '#888',
-            }}>
+                tabBarIcon: ({ focused, color, size }) => {
+                    let iconName;
+
+                    if (route.name === 'HomeStack') {
+                        iconName = focused ? 'home' : 'home-outline';
+                    } else if (route.name === 'Search') {
+                        iconName = focused ? 'search' : 'search-outline';
+                    } else if (route.name === 'Settings') {
+                        iconName = focused ? 'settings' : 'settings-outline';
+                    }
+
+                    return <Ionicons name={iconName} size={size} color={color} />;
+                },
+            })}>
             <Tab.Screen
                 name="HomeStack"
                 component={StackNavigator}
